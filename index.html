@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Maaf ya, Claryn 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Spline+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: #0f172a;        /* slate-900 */
+  --card: #111827;      /* gray-900 */
+  --soft: #1f2937;      /* gray-800 */
+  --txt: #e5e7eb;       /* gray-200 */
+  --muted:#94a3b8;      /* slate-400 */
+  --accent:#f472b6;     /* pink-400 */
+  --accent2:#a78bfa;    /* violet-400 */
+  --success:#34d399;    /* emerald-400 */
+  --warning:#f59e0b;    /* amber-500 */
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  background: radial-gradient(1200px 500px at 20% -10%, rgba(244,114,182,0.12), transparent),
+             radial-gradient(900px 500px at 120% 20%, rgba(167,139,250,0.12), transparent),
+             var(--bg);
+  color:var(--txt);
+  overflow-x:hidden;
+}
+.container{
+  width:min(1000px, 92%);
+  margin:0 auto;
+  padding:24px 0 80px;
+  position:relative;
+}
+header{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:24px;
+  align-items:center;
+  margin-top:28px;
+}
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:22px;
+  padding:22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(6px);
+}
+h1{
+  margin:0 0 10px;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height:1.12;
+  font-weight: 700;
+  letter-spacing:.2px;
+}
+.subtitle{
+  color:var(--muted);
+  font-size: clamp(14px, 1.8vw, 18px);
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(90deg, rgba(244,114,182,.15), rgba(167,139,250,.15));
+  border:1px solid rgba(255,255,255,0.1);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+  color:#fff;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(180deg, rgba(167,139,250,.22), rgba(244,114,182,.22));
+  color:white;
+  cursor:pointer;
+  font-weight:600;
+  transition:all .2s ease; 
+  text-decoration:none;
+  position: relative;
+}
+.btn:hover{ 
+  transform: translateY(-1px); 
+  box-shadow: 0 6px 20px rgba(167,139,250,.25);
+}
+.btn.ghost{ 
+  background:transparent;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.heart-bg{ 
+  position:fixed; 
+  inset:0; 
+  pointer-events:none; 
+  overflow:hidden; 
+  z-index:0;
+}
+.heart{ 
+  position:absolute; 
+  font-size:20px; 
+  opacity:.5; 
+  animation: floatUp var(--dur) linear infinite; 
+  filter: drop-shadow(0 2px 6px rgba(255,255,255,.15));
+}
+@keyframes floatUp{
+  from{ transform: translateY(10vh) scale(.8); }
+  to{   transform: translateY(-110vh) scale(1.2); }
+}
+
+.section{ 
+  margin-top:28px; 
+  display:grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap:24px;
+}
+.list{ 
+  display:grid; 
+  gap:10px; 
+  margin-top:10px;
+}
+.li{ 
+  display:flex; 
+  gap:12px; 
+  align-items:flex-start; 
+  background:rgba(255,255,255,.03); 
+  border:1px solid rgba(255,255,255,.07); 
+  padding:12px 14px; 
+  border-radius:14px;
+}
+.li i{ 
+  font-style:normal; 
+  color:var(--accent);
+}
+
+.promises{ 
+  display:grid; 
+  gap:12px; 
+  margin-top:12px;
+}
+.promise{
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:12px;
+  padding:14px; 
+  border-radius:14px; 
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); 
+  border:1px solid rgba(255,255,255,.08);
+}
+.toggle{ 
+  width:54px; 
+  height:30px; 
+  background:#111827; 
+  border-radius:99px; 
+  border:1px solid rgba(255,255,255,.12); 
+  position:relative; 
+  cursor:pointer;
+}
+.toggle::after{ 
+  content:""; 
+  position:absolute; 
+  top:3px; 
+  left:3px; 
+  width:24px; 
+  height:24px; 
+  background:#fff; 
+  border-radius:50%; 
+  transition: all .2s ease;
+}
+.toggle.on{ 
+  background:linear-gradient(90deg, var(--success), var(--accent2));
+}
+.toggle.on::after{ 
+  left:27px;
+}
+
+.footer-actions{ 
+  display:flex; 
+  gap:12px; 
+  flex-wrap:wrap; 
+  margin-top:14px;
+}
+.status{ 
+  margin-top:14px; 
+  font-size:14px; 
+  color:var(--muted);
+}
+
+.typewriter{ 
+  border-right:2px solid rgba(255,255,255,.6); 
+  white-space:nowrap; 
+  overflow:hidden;
+}
+
+.note{ 
+  font-family: 'Spline Sans', sans-serif; 
+  font-size:15px; 
+  color: var(--muted);
+}
+
+dialog{ 
+  border:none; 
+  border-radius:18px; 
+  padding:0; 
+  background: #0b1220; 
+  color: #fff; 
+  width:min(480px,90vw);
+}
+dialog .dlg-inner{ 
+  padding:18px;
+}
+dialog::backdrop{ 
+  background: rgba(0,0,0,.5);
+}
+
+.timeline{ 
+  display:grid; 
+  gap:14px;
+}
+.t-item{ 
+  display:flex; 
+  gap:10px; 
+  align-items:flex-start;
+}
+.t-dot{ 
+  width:10px; 
+  height:10px; 
+  background:var(--accent); 
+  border-radius:50%; 
+  margin-top:8px; 
+  box-shadow:0 0 0 4px rgba(244,114,182,.15);
+}
+.t-card{ 
+  flex:1; 
+  padding:12px; 
+  border-radius:14px; 
+  background:rgba(255,255,255,.03); 
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.pill{ 
+  display:inline-block; 
+  padding:6px 10px; 
+  border-radius:999px; 
+  border:1px solid rgba(255,255,255,.12); 
+  background:rgba(255,255,255,.03); 
+  font-size:12px; 
+  margin:4px 6px 0 0;
+}
+
+/* Responsiveness improvements */
+@media (max-width:900px){ 
+  header{ grid-template-columns:1fr; } 
+  .section{ grid-template-columns:1fr; } 
+}
+
+@media (max-width:600px){
+  .card{ padding:16px; }
+  .footer-actions{ flex-direction: column; }
+  .btn{ width: 100%; justify-content: center; }
+  .typewriter{ white-space: normal; border-right: none; }
+}
+
+/* Animation for broken button */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.broken-button {
+  animation: shake 0.5s ease;
+  background: linear-gradient(180deg, rgba(255,0,0,0.22), rgba(128,0,0,0.22)) !important;
+  pointer-events: none;
+}
+</style>
+</head>
+<body>
+<div class="heart-bg" aria-hidden="true" id="heartBg"></div>
+<div class="container">
+  <header>
+    <div class="card">
+      <span class="chip">🌸 Halaman maaf khusus buat kamu</span>
+      <h1 id="title">Claryn, maaf ya… 💖</h1>
+      <p class="subtitle typewriter" id="typewriter"></p>
+      <div class="footer-actions">
+        <button class="btn" id="btnMaafin">Maafin aku dong 🙏</button>
+        <button class="btn ghost" id="btnMasihBete">Hmm… masih bete</button>
+        <button class="btn ghost" id="btnTambahin">Tambah catatan kamu ✍️</button>
+      </div>
+      <p class="status" id="status">Status: nunggu dimaafin… (tapi serius, aku bakal beneran bakal selalu kabarin kamu apapun itu)</p>
+    </div>
+    <div class="card">
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <b>Kenapa kamu kesel</b>
+            <div class="list">
+              <div class="li"><i>💬</i><div>Gak ngabarin hal-hal kecil: lagi main game apa, lagi sama siapa, atau sekadar "aku on 10 menit lagi ya".</div></div>
+              <div class="li"><i>⌛</i><div>Balas chat telat, padahal kamu nungguin — rasanya gak dianggap. Aku paham dan aku salah.</div></div>
+              <div class="li"><i>🎮</i><div>Kadang terlalu fokus game sampe lupa update. Ini bakal aku atur ulang, janji.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot" style="background:var(--accent2)"></div>
+          <div class="t-card">
+            <b>Mulai sekarang aku janji</b>
+            <div class="promises" id="promises"></div>
+            <div class="note">*Klik toggle buat ngeliat komitmenku aktif. Tersimpan otomatis.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <section class="section">
+    <div class="card">
+      <b>Update kecil yang bakal aku kabarin ke kamu:</b>
+      <div id="chips" style="margin-top:10px"></div>
+      <div class="footer-actions">
+        <button class="btn" id="btnPing">Simulasi kabarin kecil: "Ping!" 🔔</button>
+        <span class="note" id="lastPing">Belum ada "ping".</span>
+      </div>
+    </div>
+    <div class="card">
+      <b>Pesan cepat buat kamu</b>
+      <p class="note" id="quickMsg">Aku tau kamu berharga. Aku belajar kalau perhatian kecil itu justru yang bikin hati kamu aman. Aku mau jadi tempat paling nyaman buat kamu, bukan sumber bete.</p>
+      <div class="footer-actions">
+        <button class="btn" id="btnRandom">Kirimin kata random buat Claryn 💌</button>
+        <a class="btn ghost" id="btnShare" href="#">Bagikan halaman ini</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <b>Kalimat maaf (versi manis tapi jujur)</b>
+      <p class="note" id="apologyText">Maaf ya, Claryn. Aku tau aku kurang ngabarin hal-hal kecil dan itu bikin kamu ngerasa sendirian. Aku bakal bener-bener perbaiki cara aku ngejaga kamu — mulai dari chat kecil, jadwal game, sampe hal receh yang kamu peduliin. Kamu penting, lebih dari apapun. 💗</p>
+      <div class="footer-actions">
+        <button class="btn ghost" id="btnCopy">Copy biar bisa dikirim ke chat</button>
+        <span class="note" id="copyStatus"></span>
+      </div>
+    </div>
+    <div class="card">
+      <b>Request dari kamu</b>
+      <p class="note">Kalau ada hal spesifik yang kamu mau aku ubah, tulis ya. Aku simpen di sini biar gak lupa.</p>
+      <div id="requests" style="margin-top:10px; display:grid; gap:8px"></div>
+      <div class="footer-actions">
+        <button class="btn" id="btnAddReq">+ Tambah request</button>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:28px; text-align:center; color:var(--muted)">
+    <small>Dibuat khusus buat Claryn. Kalo kamu udah maafin, pencet tombol di atas ya. 🫶</small>
+  </footer>
+</div>
+
+<dialog id="dlg">
+  <div class="dlg-inner">
+    <h3 style="margin:0 0 6px">Tulis catatan buat aku</h3>
+    <p style="margin:0 0 10px; color:#a1a1aa">Biar aku makin ngerti maunya kamu. Tulisan kamu otomatis kesimpen.</p>
+    <textarea id="txtNote" rows="5" style="width:100%; resize:vertical; border-radius:12px; background:#0a0f1e; color:#e5e7eb; border:1px solid #2a3346; padding:10px" placeholder="Contoh: kalo mau main bilang dulu, jangan AFK tanpa kabar."></textarea>
+    <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px">
+      <button class="btn ghost" id="dlgCancel">Batal</button>
+      <button class="btn" id="dlgSave">Simpan</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+// ===== Floating hearts =====
+const heartBg = document.getElementById('heartBg');
+const makeHeart = () => {
+  const h = document.createElement('div');
+  h.className = 'heart';
+  h.textContent = ['💖','💗','💓','💞','💕'][Math.floor(Math.random()*5)];
+  const left = Math.random()*100;
+  h.style.left = left + 'vw';
+  h.style.setProperty('--dur', (10 + Math.random()*12) + 's');
+  heartBg.appendChild(h);
+  setTimeout(()=> h.remove(), 15000);
+};
+for(let i=0;i<16;i++) setTimeout(makeHeart, i*400);
+setInterval(makeHeart, 800);
+
+// ===== Typewriter =====
+const twEl = document.getElementById('typewriter');
+const lines = [
+  'aku salah karena gak ngabarin hal-hal kecil.',
+  'mulai sekarang aku akan update yang receh sekalipun.',
+  'kamu tuh prioritas, bukan pilihan.',
+];
+let li = 0, ci = 0, del = false;
+function loopType(){
+  const cur = lines[li];
+  if(!del) {
+    twEl.textContent = cur.slice(0, ++ci);
+    if(ci === cur.length){ del = true; setTimeout(loopType, 1200); return; }
+  } else {
+    twEl.textContent = cur.slice(0, --ci);
+    if(ci === 0){ del = false; li = (li+1)%lines.length; }
+  }
+  setTimeout(loopType, del? 24 : 34);
+}
+loopType();
+
+// ===== Promises toggles (persist) =====
+const promiseList = [
+  { id:'p1', text:'Selalu bilang kalau mau main game dan kira-kira berapa lama.' },
+  { id:'p2', text:'Update pas lagi AFK / ke toilet / makan (biar kamu gak nungguin sia-sia).'},
+  { id:'p3', text:'Prioritasin balas chat kamu dulu sebelum lanjut push rank.'},
+  { id:'p4', text:'Kabarin kalo main sama siapa (temen / squad), biar clear.'},
+  { id:'p5', text:'Atur waktu: minimal ada quality time harian khusus buat kamu.'}
+];
+const promisesWrap = document.getElementById('promises');
+const saved = JSON.parse(localStorage.getItem('promises')||'{}');
+promiseList.forEach(p=>{
+  const row = document.createElement('div'); row.className='promise';
+  const label = document.createElement('div'); label.textContent = p.text; row.appendChild(label);
+  const t = document.createElement('div'); t.className='toggle'; if(saved[p.id]) t.classList.add('on'); row.appendChild(t);
+  t.addEventListener('click', ()=>{
+    t.classList.toggle('on');
+    saved[p.id] = t.classList.contains('on');
+    localStorage.setItem('promises', JSON.stringify(saved));
+    pulse(row);
+  });
+  promisesWrap.appendChild(row);
+});
+function pulse(el){ el.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:280}); }
+
+// ===== Chips of micro-updates =====
+const chipItems = ['baru login game','push rank 2 match','AFK 10 menit','lagi call sama temen','lagi crafting/upgrade','lagi daily quest','mau tidur dulu','otw pulang'];
+const chips = document.getElementById('chips');
+chipItems.forEach(t=>{ const c=document.createElement('span'); c.className='pill'; c.textContent = '• '+t; chips.appendChild(c); });
+
+// ===== Ping simulation =====
+const btnPing = document.getElementById('btnPing');
+const lastPing = document.getElementById('lastPing');
+btnPing.addEventListener('click', ()=>{
+  const msg = 'Ping! info kecil: '+ chipItems[Math.floor(Math.random()*chipItems.length)];
+  lastPing.textContent = new Date().toLocaleString() + ' — ' + msg;
+  confetti();
+});
+
+// ===== Confetti =====
+function confetti(){
+  const n = 80;
+  for(let i=0;i<n;i++){
+    const s = document.createElement('span');
+    s.style.position='fixed'; s.style.left=(Math.random()*100)+'vw'; s.style.top='-10px';
+    s.style.width=s.style.height=(6+Math.random()*8)+'px'; s.style.background = `hsl(${Math.random()*360} 80% 60%)`;
+    s.style.borderRadius='2px'; s.style.transform=`rotate(${Math.random()*360}deg)`; s.style.zIndex=20; s.style.pointerEvents='none';
+    document.body.appendChild(s);
+    const fall = s.animate([
+      {transform:`translateY(0) rotate(0deg)`},
+      {transform:`translateY(${110+Math.random()*40}vh) rotate(${360+Math.random()*360}deg)`}
+    ],{duration: 1600+Math.random()*1200, easing:'cubic-bezier(.2,.6,.2,1)'});
+    fall.onfinish=()=>s.remove();
+  }
+}
+
+// ===== Buttons (forgiveness & prank) =====
+const btnMaafin = document.getElementById('btnMaafin');
+const title = document.getElementById('title');
+const statusEl = document.getElementById('status');
+btnMaafin.addEventListener('click', ()=>{
+  title.textContent = 'Terima kasih udah maafin aku, Claryn 🫶';
+  statusEl.textContent = 'Status: udah baikan. Aku tetap bakal konsisten kabarin hal-hal kecil.';
+  confetti();
+  localStorage.setItem('forgiven', 'yes');
+});
+if(localStorage.getItem('forgiven')==='yes'){
+  title.textContent = 'Terima kasih udah maafin aku, Claryn 🫶';
+  statusEl.textContent = 'Status: udah baikan. Aku tetap bakal konsisten kabarin hal-hal kecil.';
+}
+
+// ===== Enhanced "Hmm... Masih Bete" button =====
+const btnMasihBete = document.getElementById('btnMasihBete');
+let clickCount = 0;
+let isBroken = false;
+
+btnMasihBete.addEventListener('click', function() {
+  if (isBroken) return;
+  
+  clickCount++;
+  
+  // Move button to the right on first click
+  if (clickCount === 1) {
+    this.style.transform = 'translateX(50px)';
+    this.textContent = "Klik lagi kalau mau...";
+  } 
+  // Move button to the left on second click
+  else if (clickCount === 2) {
+    this.style.transform = 'translateX(-50px)';
+    this.textContent = "Sekarang klik sekali lagi...";
+  } 
+  // Break the button on third click
+  else if (clickCount >= 3) {
+    this.textContent = "Maaf tombol rusak clar, pencet yang lain aja ya";
+    this.classList.add('broken-button');
+    isBroken = true;
+    
+    // Reset after 5 seconds
+    setTimeout(() => {
+      this.textContent = "Hmm… masih bete";
+      this.style.transform = '';
+      this.classList.remove('broken-button');
+      clickCount = 0;
+      isBroken = false;
+    }, 5000);
+  }
+});
+
+// ===== Share =====
+const btnShare = document.getElementById('btnShare');
+btnShare.addEventListener('click', async (e)=>{
+  e.preventDefault();
+  try{
+    if(navigator.share){
+      await navigator.share({title:document.title, text:'Halaman maaf buat kamu 💗', url: location.href});
+    }else {
+      await navigator.clipboard.writeText(location.href);
+      alert('Link sudah di-copy!');
+    }
+  }catch(err){ console.log(err); }
+});
+
+// ===== Copy apology =====
+const btnCopy = document.getElementById('btnCopy');
+const apologyText = document.getElementById('apologyText');
+const copyStatus = document.getElementById('copyStatus');
+btnCopy.addEventListener('click', async()=>{
+  await navigator.clipboard.writeText(apologyText.textContent);
+  copyStatus.textContent = '✔️ Tersalin. Kirim ke chat ya!';
+  setTimeout(()=> copyStatus.textContent='', 2000);
+});
+
+// ===== Notes / Requests (dialog + persist) =====
+const dlg = document.getElementById('dlg');
+const btnTambahin = document.getElementById('btnTambahin');
+const btnAddReq = document.getElementById('btnAddReq');
+const dlgCancel = document.getElementById('dlgCancel');
+const dlgSave = document.getElementById('dlgSave');
+const txtNote = document.getElementById('txtNote');
+const listReq = document.getElementById('requests');
+function renderReq(){
+  listReq.innerHTML='';
+  const data = JSON.parse(localStorage.getItem('requests')||'[]');
+  if(!data.length){ 
+    const empty = document.createElement('div'); 
+    empty.className='note'; 
+    empty.textContent = 'Belum ada request.'; 
+    listReq.appendChild(empty); 
+    return; 
+  }
+  data.forEach((t,i)=>{
+    const row=document.createElement('div'); row.className='li';
+    const span=document.createElement('div'); span.textContent=t; row.appendChild(span);
+    const del=document.createElement('button'); del.className='btn ghost'; del.textContent='hapus'; del.style.padding='6px 10px'; del.style.fontSize='12px';
+    del.addEventListener('click',()=>{ 
+      data.splice(i,1); 
+      localStorage.setItem('requests', JSON.stringify(data)); 
+      renderReq(); 
+    });
+    row.appendChild(del);
+    listReq.appendChild(row);
+  })
+}
+renderReq();
+function openDlg(){ txtNote.value=''; dlg.showModal(); setTimeout(()=>txtNote.focus(),50); }
+btnTambahin.addEventListener('click', openDlg);
+btnAddReq.addEventListener('click', openDlg);
+dlgCancel.addEventListener('click', ()=> dlg.close());
+dlgSave.addEventListener('click', ()=>{
+  const v = txtNote.value.trim(); if(!v) return;
+  const data = JSON.parse(localStorage.getItem('requests')||'[]');
+  data.push(v); localStorage.setItem('requests', JSON.stringify(data));
+  dlg.close(); renderReq(); pulse(listReq);
+});
+
+// ===== Cute random love lines =====
+const loveLines = [
+  'kamu tuh rumah paling nyaman buat pulang. 🏠',
+  'aku pengen kamu ngerasa aman sama aku, setiap hari.',
+  'yang kecil-kecil bakal aku jaga, karena itu yang bikin besar.',
+  'maafin aku ya, aku sayang kamu beneran.',
+  'kamu valid marahnya. tugasku: buktiin perubahannya.'
+];
+document.getElementById('btnRandom').addEventListener('click', ()=>{
+  document.getElementById('quickMsg').textContent = loveLines[Math.floor(Math.random()*loveLines.length)];
+  pulse(document.getElementById('quickMsg'));
+});
+</script>
+</body>
+</html>
